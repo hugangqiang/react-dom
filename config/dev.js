@@ -1,9 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {defaultPath, defaultConfig } = require('./default.js');
+const {dfPath, dfConfig } = require('./default.js');
 
-let config = Object.assign(defaultConfig, {
+let config = Object.assign(dfConfig, {
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -12,10 +12,10 @@ let config = Object.assign(defaultConfig, {
             template: './src/index.html'
         }),
         new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
             React: 'react',
             ReactDOM: 'react-dom',
+            Router: 'react-router',
+            RouterDOM: 'react-router-dom',
             PT: 'prop-types'
         })
     ],
@@ -23,12 +23,12 @@ let config = Object.assign(defaultConfig, {
     resolve: {
         modules: [
             'node_modules',
-            defaultPath.src,
-            defaultPath.common,
-            defaultPath.components,
-            defaultPath.layout,
-            defaultPath.view,
-            defaultPath.root
+            dfPath.src,
+            dfPath.common,
+            dfPath.components,
+            dfPath.layout,
+            dfPath.view,
+            dfPath.root
         ]
     },
     devtool: 'cheap-module-eval-source-map'
@@ -42,15 +42,15 @@ config.module.rules.push(
     //     use: ['eslint-loader'],
     //     enforce: 'pre',
     //     include:[
-    //         defaultPath.src
+    //         dfPath.src
     //     ]
     // },
     {
         test: /\.js$/,
         use: ['babel-loader'],
         include:[
-            defaultPath.src,
-            // defaultPath.semantic
+            dfPath.src,
+            dfPath.semantic
         ]
     },
     {

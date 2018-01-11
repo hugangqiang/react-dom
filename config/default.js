@@ -1,7 +1,7 @@
 
 const path = require('path');
 
-let defaultPath = {
+let dfPath = {
     src: path.resolve(__dirname, '../src'),
     dist: path.resolve(__dirname, '../dist'),
     common: path.resolve(__dirname, '../src/common'),
@@ -12,7 +12,7 @@ let defaultPath = {
     semantic: path.resolve(__dirname, '../semantic'),
 }
 
-let defaultConfig = {
+let dfConfig = {
     entry: [
         './src/app.js'
     ],
@@ -54,6 +54,6 @@ let defaultConfig = {
 }
 
 module.exports = {
-    defaultPath,
-    defaultConfig
+    dfPath,
+    dfConfig
 };
